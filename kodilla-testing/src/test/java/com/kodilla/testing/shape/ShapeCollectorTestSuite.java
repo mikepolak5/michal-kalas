@@ -47,15 +47,5 @@ public class ShapeCollectorTestSuite {
 
         Assert.assertEquals(theTriangle, retrievedFigure);
     }
-    @Test
-    public void testshowFigure() {
-        ShapeCollector shapeCollector = new ShapeCollector();
-
-        Triangle triangle = new Triangle("Triangle", 30);
-        shapeCollector.addFigure(triangle);
-        shapeCollector.showFigures();
-
-        Assert.assertEquals(shapeCollector.showFigures());
-    }
 }
 
