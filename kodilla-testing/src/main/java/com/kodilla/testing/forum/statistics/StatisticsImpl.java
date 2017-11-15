@@ -17,4 +17,5 @@ public class StatisticsImpl implements Statistics {
     public int commentsCount() {
         return 0;
     }
+
 }

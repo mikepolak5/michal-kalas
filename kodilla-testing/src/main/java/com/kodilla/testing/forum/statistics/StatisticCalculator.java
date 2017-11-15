@@ -1,5 +1,6 @@
 package com.kodilla.testing.forum.statistics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticCalculator {
@@ -11,6 +12,7 @@ public class StatisticCalculator {
     private int numberOfUsers;
     private int numberOfPosts;
     private int numberOfComments;
+    private int hundredUsers;
 
 
     public Statistics getStatistics() {
@@ -41,6 +43,7 @@ public class StatisticCalculator {
         return numberOfComments;
     }
 
+
     public void ShowStatistics() {
         System.out.println("Average comments Per Post: " + averageCommentsPerPost);
         System.out.println("Average comments per User: " + averageCommentsPerUser);
@@ -51,13 +54,16 @@ public class StatisticCalculator {
 }
 
     public void calculateAdvStatistics (Statistics statistics) {
-        numberOfPosts = statistics.postsCount();
+
+        if(statistics.postsCount() != 0) {
+            averageCommentsPerPost = statistics.commentsCount()/statistics.postsCount();
+        }
+        if (statistics.usersNames().size() > 0) {
+            averageCommentsPerUser = statistics.commentsCount()/statistics.usersNames().size();
+            averagePostsPerUser = statistics.postsCount()/statistics.usersNames().size();
+        }
         numberOfComments = statistics.commentsCount();
         numberOfUsers = statistics.usersNames().size();
-        averageCommentsPerPost = statistics.commentsCount()/statistics.postsCount();
-        averageCommentsPerUser = statistics.commentsCount()/statistics.usersNames().size();
-        averagePostsPerUser = statistics.postsCount()/statistics.usersNames().size();
-
-
+        numberOfPosts = statistics.postsCount();
     }
 }

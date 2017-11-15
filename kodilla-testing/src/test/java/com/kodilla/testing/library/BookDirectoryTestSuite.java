@@ -91,26 +91,38 @@ public class BookDirectoryTestSuite {
 
     @Test
     public void testListBooksInHandsOf() {
+        //Given
         LibraryUser libraryUser = new LibraryUser("Piotrek", "Strzalka", "1232123123");
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         List<Book> bookList1 = new ArrayList<>();
         when(libraryDatabaseMock.listBooksInHandsOf(any())).thenReturn(bookList1);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+
+        //When
         List<Book> bookListTest = bookLibrary.listBooksInHandsOf(libraryUser);
 
+        //Then
         assertEquals(0, bookListTest.size());
 
+        //Given
         Book book = new Book("dsada", "dsads", 123);
         bookList1.add(book);
 
+        //When
         bookListTest = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        //Then
         assertEquals(1, bookListTest.size());
         assertEquals("dsada", bookListTest.get(0).title);
         assertEquals("dsads", bookListTest.get(0).author);
+
+        //Given
         bookList1.add(book);
         bookList1.add(book);
         bookList1.add(book);
         bookList1.add(book);
+
+        //Then
         assertEquals(5, bookListTest.size());
     }
 }
