@@ -1,8 +1,7 @@
 package com.kodilla.testing.shape;
 import org.junit.*;
-import sun.security.provider.SHA;
 
-import java.util.*;
+
 
 public class ShapeCollectorTestSuite {
     @BeforeClass

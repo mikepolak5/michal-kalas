@@ -1,39 +1,19 @@
 package com.kodilla.testing.forum.statistics;
 
-import com.sun.org.glassfish.external.statistics.Statistic;
+
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
-import org.mockito.Mock;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
 
 public class StatisticsTestSuite {
 
 
-    @Test
-    public void calculateAdvStatisticsTest(){
-        Statistics statistics = mock(Statistics.class);
-        when(statistics.postsCount()).thenReturn(0);
-        when(statistics.postsCount()).thenReturn(1000);
-
-        List<String> userNames = new ArrayList<>();
-        userNames.add("69");
-        userNames.add("rer");
-        when(statistics.usersNames()).thenReturn(userNames);
-
-
-        StatisticCalculator statisticCalculator = new StatisticCalculator();
-        statisticCalculator.calculateAdvStatistics(statistics);
-
-        assertEquals(4,statisticCalculator.getNumberOfPosts());
-
-    }
     @Test
     public void calculateAdvStatisticsTest0Posts() {
         Statistics statistics = mock(Statistics.class);

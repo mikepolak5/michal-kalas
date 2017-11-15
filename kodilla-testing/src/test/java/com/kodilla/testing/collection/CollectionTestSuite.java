@@ -40,6 +40,6 @@ public class CollectionTestSuite {
         for(Integer k : result) {
             System.out.println(k);
         }
-        Assert.assertEquals(2, result.size());
+        Assert.assertEquals(3, result.size());
     }
 }
