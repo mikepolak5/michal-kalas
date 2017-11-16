@@ -90,7 +90,7 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testListBooksInHandsOf() {
+    public void testListBooksInHandsOfNoBooksRented() {
         //Given
         LibraryUser libraryUser = new LibraryUser("Piotrek", "Strzalka", "1232123123");
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
@@ -103,26 +103,50 @@ public class BookDirectoryTestSuite {
 
         //Then
         assertEquals(0, bookListTest.size());
-
+    }
+    @Test
+    public void testListBooksInHandsOfOneBookRented() {
         //Given
+        LibraryUser libraryUser = new LibraryUser("Piotrek", "Strzalka", "1232123123");
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        List<Book> bookList1 = new ArrayList<>();
+        when(libraryDatabaseMock.listBooksInHandsOf(any())).thenReturn(bookList1);
+        BookLibrary bookLibrary1 = new BookLibrary(libraryDatabaseMock);
         Book book = new Book("dsada", "dsads", 123);
-        bookList1.add(book);
 
         //When
-        bookListTest = bookLibrary.listBooksInHandsOf(libraryUser);
+        bookList1.add(book);
+        List<Book> bookListTest;
+        bookListTest = bookLibrary1.listBooksInHandsOf(libraryUser);
 
         //Then
         assertEquals(1, bookListTest.size());
         assertEquals("dsada", bookListTest.get(0).title);
         assertEquals("dsads", bookListTest.get(0).author);
-
+    }
+    @Test
+    public void testListBooksInHandsOfFiveBooksRented() {
         //Given
+        LibraryUser libraryUser = new LibraryUser("Piotrek", "Strzalka", "1232123123");
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        List<Book> bookList1 = new ArrayList<>();
+        when(libraryDatabaseMock.listBooksInHandsOf(any())).thenReturn(bookList1);
+        BookLibrary bookLibrary5 = new BookLibrary(libraryDatabaseMock);
+        Book book = new Book("dsada", "dsads", 123);
+
+        //When
+
+        List<Book> bookListTest;
+        bookListTest = bookLibrary5.listBooksInHandsOf(libraryUser);
+        bookList1.add(book);
         bookList1.add(book);
         bookList1.add(book);
         bookList1.add(book);
         bookList1.add(book);
 
         //Then
+        assertEquals("dsada", bookListTest.get(0).title);
+        assertEquals("dsads", bookListTest.get(0).author);
         assertEquals(5, bookListTest.size());
     }
 }

@@ -21,7 +21,12 @@ public class StatisticsTestSuite {
 
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         statisticCalculator.calculateAdvStatistics(statistics);
-        assertEquals(0,statisticCalculator.getNumberOfPosts());
+        assertEquals(0, statisticCalculator.getNumberOfUsers());
+        assertEquals(0, statisticCalculator.getNumberOfPosts());
+        assertEquals(0, statisticCalculator.getNumberOfComments());
+        assertEquals(0, statisticCalculator.getAverageCommentsPerPost(), 0);
+        assertEquals(0, statisticCalculator.getAverageCommentsPerUser(), 0);
+        assertEquals(0, statisticCalculator.getAveragePostsPerUser(), 0);
     }
     @Test
     public void calculateAdvStatisticsTest1000Posts() {
@@ -30,7 +35,12 @@ public class StatisticsTestSuite {
 
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         statisticCalculator.calculateAdvStatistics(statistics);
-        assertEquals(1000,statisticCalculator.getNumberOfPosts());
+        assertEquals(0, statisticCalculator.getNumberOfUsers());
+        assertEquals(1000, statisticCalculator.getNumberOfPosts());
+        assertEquals(0, statisticCalculator.getNumberOfComments());
+        assertEquals(0, statisticCalculator.getAverageCommentsPerPost(), 0);
+        assertEquals(0, statisticCalculator.getAverageCommentsPerUser(), 0);
+        assertEquals(0, statisticCalculator.getAveragePostsPerUser(), 0);
     }
     @Test
     public void calculateAdvStatisticsTest0Comments() {
@@ -39,7 +49,12 @@ public class StatisticsTestSuite {
 
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         statisticCalculator.calculateAdvStatistics(statistics);
+        assertEquals(0, statisticCalculator.getNumberOfUsers());
+        assertEquals(0, statisticCalculator.getNumberOfPosts());
         assertEquals(0, statisticCalculator.getNumberOfComments());
+        assertEquals(0, statisticCalculator.getAverageCommentsPerPost(), 0);
+        assertEquals(0, statisticCalculator.getAverageCommentsPerUser(), 0);
+        assertEquals(0, statisticCalculator.getAveragePostsPerUser(), 0);
     }
     @Test
     public void calculateAdvStatisticsTestMoreCommentsThanPosts() {
@@ -49,8 +64,12 @@ public class StatisticsTestSuite {
 
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         statisticCalculator.calculateAdvStatistics(statistics);
-        assertEquals(7, statisticCalculator.getNumberOfComments());
+        assertEquals(0, statisticCalculator.getNumberOfUsers());
         assertEquals(5, statisticCalculator.getNumberOfPosts());
+        assertEquals(7, statisticCalculator.getNumberOfComments());
+        assertEquals(1.0, statisticCalculator.getAverageCommentsPerPost(), 0);
+        assertEquals(0, statisticCalculator.getAverageCommentsPerUser(), 0);
+        assertEquals(0, statisticCalculator.getAveragePostsPerUser(), 0);
     }
     @Test
     public void calculateAdvStatisticsTestMorePostsThanComments() {
@@ -60,17 +79,30 @@ public class StatisticsTestSuite {
 
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         statisticCalculator.calculateAdvStatistics(statistics);
-        assertEquals(3, statisticCalculator.getNumberOfComments());
+        assertEquals(0, statisticCalculator.getNumberOfUsers());
         assertEquals(9, statisticCalculator.getNumberOfPosts());
+        assertEquals(3, statisticCalculator.getNumberOfComments());
+        assertEquals(0, statisticCalculator.getAverageCommentsPerPost(), 0);
+        assertEquals(0, statisticCalculator.getAverageCommentsPerUser(), 0);
+        assertEquals(0, statisticCalculator.getAveragePostsPerUser(), 0);
     }
     @Test
     public void calculateAdvStatisticsTest0Users() {
+        //Given
         Statistics statistics = mock(Statistics.class);
         when(statistics.usersNames()).thenReturn(new ArrayList<>());
-
         StatisticCalculator statisticCalculator = new StatisticCalculator();
+
+        //When
         statisticCalculator.calculateAdvStatistics(statistics);
+
+        //Then
         assertEquals(0, statisticCalculator.getNumberOfUsers());
+        assertEquals(0, statisticCalculator.getNumberOfPosts());
+        assertEquals(0, statisticCalculator.getNumberOfComments());
+        assertEquals(0, statisticCalculator.getAverageCommentsPerPost(), 0);
+        assertEquals(0, statisticCalculator.getAverageCommentsPerUser(), 0);
+        assertEquals(0, statisticCalculator.getAveragePostsPerUser(), 0);
     }
     @Test
     public void calculateAdvStatisticsTest100Users() {
@@ -84,5 +116,10 @@ public class StatisticsTestSuite {
         StatisticCalculator statisticCalculator = new StatisticCalculator();
         statisticCalculator.calculateAdvStatistics(statistics);
         assertEquals(100, statisticCalculator.getNumberOfUsers());
+        assertEquals(0, statisticCalculator.getNumberOfPosts());
+        assertEquals(0, statisticCalculator.getNumberOfComments());
+        assertEquals(0, statisticCalculator.getAverageCommentsPerPost(), 0);
+        assertEquals(0, statisticCalculator.getAverageCommentsPerUser(), 0);
+        assertEquals(0, statisticCalculator.getAveragePostsPerUser(), 0);
     }
 }
