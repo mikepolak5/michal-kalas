@@ -12,11 +12,13 @@ public final class Forum {
         forumUsers.add(new ForumUser(2, "madeline", 'f', 2000, 11,
                 11, 50));
         forumUsers.add(new ForumUser(3, "yolo", 'm', 1967, 9,
-                28, 0));
+                28, 5));
         forumUsers.add(new ForumUser(4, "super23", 'f', 1983, 12,
                 9, 3));
         forumUsers.add(new ForumUser(5, "greedyMan", 'm', 2002, 2,
                 2, 0));
+        forumUsers.add(new ForumUser(6, "number6", 'm', 1992, 4,
+                11, 50));
     }
 
     public List<ForumUser> getForumUsers() {
