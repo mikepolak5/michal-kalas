@@ -4,7 +4,11 @@ import com.kodilla.stream.book.Book;
 import com.kodilla.stream.book.BookDirectory;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
+import com.kodilla.stream.world.Continent;
+import com.kodilla.stream.world.Country;
+import com.kodilla.stream.world.World;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -43,7 +47,11 @@ public class StreamMain {
 
         System.out.println(theResultListOfForumUsers);*/
 
-
+/*        World world = new World();
+        Continent continent = new Continent();
+        Country country = new Country("Poland", new BigDecimal("38000000"));
+        world.addContinent(continent);
+        continent.addCountry(country);*/
 
     }
 }
