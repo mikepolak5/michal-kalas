@@ -1,5 +1,6 @@
 package com.kodilla.stream.world;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -10,8 +11,6 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity() {
 
-        List<World> peopleQuantity = new ArrayList<>();
-        peopleQuantity.add()
 
         Country croatia = new Country("Croatia", new BigDecimal("11000000"));
         Country poland = new Country("Poland", new BigDecimal("38000000"));
@@ -60,12 +59,8 @@ public class WorldTestSuite {
         world.addContinent(northAmerica);
         world.addContinent(southAmerica);
 
-        List<World> continentList = new ArrayList<>();
-        continentList.add(world.addContinent(europe));
 
-        BigDecimal people = continentList.stream()
-                .map(continent -> getPeopleQuantity())
-                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
-
+        BigDecimal expectedPeople = new BigDecimal("4517000000");
+        Assert.assertEquals(expectedPeople, world);
     }
 }
