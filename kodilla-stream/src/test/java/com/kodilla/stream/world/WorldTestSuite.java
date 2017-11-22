@@ -28,7 +28,6 @@ public class WorldTestSuite {
         Country china = new Country("China", new BigDecimal("3100000000"));
         Country japan = new Country("Japan", new BigDecimal("17000000"));
 
-
         Continent europe = new Continent();
         Continent africa = new Continent();
         Continent asia = new Continent();
@@ -60,7 +59,7 @@ public class WorldTestSuite {
         world.addContinent(southAmerica);
 
 
-        BigDecimal expectedPeople = new BigDecimal("4517000000");
-        Assert.assertEquals(expectedPeople, world);
+        BigDecimal expectedPeople = new BigDecimal("4637000000");
+        Assert.assertEquals(expectedPeople, world.getPeopleQuantity());
     }
 }
