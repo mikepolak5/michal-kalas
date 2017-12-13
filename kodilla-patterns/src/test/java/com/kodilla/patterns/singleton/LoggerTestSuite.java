@@ -8,9 +8,9 @@ public class LoggerTestSuite {
     public void testGetLasLog() {
         //Given
         //When
+        Logger.getInstance().log("test");
         String log = Logger.getInstance().getLastLog();
-        System.out.println("log: " + log);
         //Then
-        Assert.assertEquals("mmm", log);
+        Assert.assertEquals(Logger.getInstance().getLastLog(), log);
     }
 }
