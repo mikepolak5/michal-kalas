@@ -30,7 +30,7 @@ public class Product {
     }
     @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "invoice",
+            mappedBy = "product",
             cascade = CascadeType.MERGE,
             fetch = FetchType.LAZY
     )
