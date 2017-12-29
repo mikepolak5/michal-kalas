@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "INVOICE")
 public class Invoice {
     private int id;
     private String number;
@@ -32,8 +34,8 @@ public class Invoice {
     }
     @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "itemList",
-            cascade = CascadeType.ALL,
+            mappedBy = "invoice",
+            cascade = CascadeType.MERGE,
             fetch = FetchType.LAZY
     )
     public List<Item> getItems() {

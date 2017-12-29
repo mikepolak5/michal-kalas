@@ -5,6 +5,9 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Entity
+@Table(name = "PRODUCT")
 public class Product {
     private int id;
     private String name;
@@ -27,8 +30,8 @@ public class Product {
     }
     @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "itemList",
-            cascade = CascadeType.ALL,
+            mappedBy = "invoice",
+            cascade = CascadeType.MERGE,
             fetch = FetchType.LAZY
     )
     public List<Item> getItems() {
