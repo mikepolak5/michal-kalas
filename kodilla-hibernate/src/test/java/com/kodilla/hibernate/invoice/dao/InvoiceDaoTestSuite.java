@@ -39,6 +39,10 @@ public class InvoiceDaoTestSuite {
         invoice.getItems().add(gravy);
         invoice3.getItems().add(candy);
 
+        product.getItems().add(cake);
+        product2.getItems().add(candy);
+        product3.getItems().add(gravy);
+
         //When
         invoiceDao.save(invoice);
         int invoiceId = invoice.getId();
