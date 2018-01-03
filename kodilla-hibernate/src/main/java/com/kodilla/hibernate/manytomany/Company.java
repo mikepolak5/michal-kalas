@@ -5,6 +5,12 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@NamedNativeQuery(
+        name = "Company.retrieveComapniesWithThreeWordsForParam",
+        query = "SELECT * FROM companies" +
+                "WHERE FIELD LIKE AND% = :ARG"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -47,5 +53,9 @@ public class Company {
 
     private void setName(String name) {
         this.name = name;
+    }
+
+    public void setEmployee(Employee employee){
+        this.employees = employees;
     }
 }

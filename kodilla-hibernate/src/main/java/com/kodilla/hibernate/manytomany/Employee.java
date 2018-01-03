@@ -5,6 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Employee.retrieveByName",
+        query = "FROM Employee WHERE lastname > :LASTNAME"
+)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -13,7 +18,7 @@ public class Employee {
     private String lastname;
     private List<Company> companies = new ArrayList<>();
 
-    public Employee() {
+    public Employee(String join_company_employee) {
     }
 
     public Employee(String firstname, String lastname) {
@@ -64,5 +69,9 @@ public class Employee {
 
     private void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public void setCompany(Company company){
+        this.companies = companies;
     }
 }
