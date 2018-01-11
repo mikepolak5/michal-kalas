@@ -7,7 +7,7 @@ import java.util.List;
 
 @NamedQuery(
         name = "Employee.retrieveByName",
-        query = "FROM Employee WHERE lastname > :LASTNAME"
+        query = "FROM Employee WHERE lastname = :LASTNAME"
 )
 
 @Entity
@@ -18,8 +18,9 @@ public class Employee {
     private String lastname;
     private List<Company> companies = new ArrayList<>();
 
-    public Employee(String join_company_employee) {
+    public Employee() {
     }
+
 
     public Employee(String firstname, String lastname) {
         this.firstname = firstname;

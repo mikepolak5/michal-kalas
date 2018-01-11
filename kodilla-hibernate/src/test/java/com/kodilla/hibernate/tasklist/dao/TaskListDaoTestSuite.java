@@ -121,44 +121,4 @@ public class TaskListDaoTestSuite {
             taskListDao.delete(id);
         }
     }
-    @Test
-    public void testCompany() {
-        Company company1 = new Company("Milk co.");
-        Company company2 = new Company("Meat co.");
-        Company company3 = new Company("Game co.");
-
-        Employee employee1 = new Employee("John", "Stones");
-        Employee employee2 = new Employee("Jimmy", "Gring");
-        Employee employee3 = new Employee("Catherine", "Mo");
-
-        company1.setEmployee(employee1);
-        company2.setEmployee(employee2);
-        company3.setEmployee(employee3);
-
-        Employee employee = new Employee("JOIN_COMPANY_EMPLOYEE");
-        employee.getCompanies().add(company1);
-        employee.getCompanies().add(company2);
-        employee.getCompanies().add(company3);
-
-        company1.setEmployee(employee);
-        company2.setEmployee(employee);
-        company3.setEmployee(employee);
-
-        employeeDao.save(employee);
-        int id = employee.getId();
-
-        //When
-        List<Employee> lastname = employeeDao.retrieveByName("Stones");
-        List<Company> threeWords = companyDao.retrieveComapniesWithThreeWordsForParam();
-
-        //Then
-        try {
-            Assert.assertEquals(1, lastname.size());
-            Assert.assertEquals(3, threeWords.size());
-        } finally {
-            //CleanUp
-            companyDao.delete(id);
-            employeeDao.delete(id);
-        }
-    }
 }

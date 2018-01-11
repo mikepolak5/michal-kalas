@@ -8,8 +8,9 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.retrieveComapniesWithThreeWordsForParam",
-        query = "SELECT * FROM companies" +
-                "WHERE FIELD LIKE AND% = :ARG"
+        query = "SELECT * FROM companies " +
+                "WHERE COMPANY_NAME LIKE :ARG",
+        resultClass = Company.class
 )
 @Entity
 @Table(name = "COMPANIES")
