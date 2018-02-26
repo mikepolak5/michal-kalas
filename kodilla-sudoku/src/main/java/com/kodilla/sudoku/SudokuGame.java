@@ -6,7 +6,7 @@ public class SudokuGame {
 
 
 
-    public static void main (String[] args) {
+/*    public static void main (String[] args) {
         boolean gameFinished = false;
         while(!gameFinished) {
             SudokuGame theGame = new SudokuGame();
@@ -16,5 +16,5 @@ public class SudokuGame {
     public boolean isResolveSudoku() {
         while (resolveSudoku)
             return resolveSudoku;
-    }
+    }*/
 }
